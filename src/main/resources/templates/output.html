@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--import thymeleaf namespace into the page-->
+<head>
+<meta charset="ISO-8859-1">
+<title>Main Menu</title>
+
+<!-- Call css file for page styling -->
+<link rel="stylesheet" href="../static/css/main.css"
+	th:href="@{/css/main.css}">
+</head>
+<body>
+
+
+	<div th:unless="${#strings.equalsIgnoreCase(u.name, session.uName.name)}" >
+		
+		<h1 th:text = "Welcome">Welcome!</h1>
+	
+	</div>
+	
+	<div th:if="${#strings.equalsIgnoreCase(u.name, session.uName.name)}" >
+		
+		<h1 th:text = "|Welcome ${session.uName.name}|">Welcome!</h1>
+	
+	</div> 
+	
+	
+	<a class="button" href="/back">Back</a>
+	<a class="button" href="/logOut">Log Out</a>
+		
+</body>
+</html>

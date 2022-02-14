@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--import thymeleaf namespace into the page-->
+<head>
+<meta charset="ISO-8859-1">
+<title>Main Menu</title>
+
+<!-- Call css file for page styling -->
+<link rel="stylesheet" href="../static/css/main.css"
+	th:href="@{/css/main.css}">
+</head>
+<body>
+	<h1>Sessions Demo</h1>
+	
+	<div th:text="${session.message}">Foo</div>
+	
+	
+	<form method="post" action="/addItem" th:object="${inv}">
+	
+		<p><label for="itemId">Item ID:
+			<input type="number" min="1" id="itemId" name="itemId" th:field="*{itemId}">
+		</label><br>
+		<p><label for="itemName">Item Name:
+			<input type="text"  id="itemName" name="itemName" th:field="*{itemName}">
+		</label><br>
+		<p><label for="quantity">Quantity:
+			<input type="number" min="0" id="quantity" name="quantity" th:field="*{quantity}">
+		</label><br>
+		<p><label for="price">Price:
+			<input type="text" min="1" id="price"  name="price" pattern="^(\d*\.?)?\d+" th:field="*{price}">
+		</label><br>
+		
+		<p><input type="submit"></p>
+	
+	</form>
+	
+</body>
+</html>
